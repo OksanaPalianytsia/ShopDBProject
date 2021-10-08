@@ -107,6 +107,7 @@ namespace ShopDBApplication
                 case 0:
                     Environment.Exit(0);
                     break;
+                default: break;
             }
             string choice = Console.ReadLine();
             int number;
