@@ -1,0 +1,12 @@
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\ShopDBApplication.exe.config
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\ShopDBApplication.exe
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\ShopDBApplication.pdb
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\obj\Debug\ConsoleProject.csproj.AssemblyReference.cache
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\obj\Debug\ConsoleProject.csproj.CoreCompileInputs.cache
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\obj\Debug\ShopDBApplication.exe
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\obj\Debug\ShopDBApplication.pdb
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\DAL.dll
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\DTO.dll
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\DAL.pdb
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\DTO.pdb
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\obj\Debug\ConsoleProject.csproj.CopyComplete
