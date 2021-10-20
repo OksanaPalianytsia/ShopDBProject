@@ -3,13 +3,10 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.ADO
 {
-    public class CategoryDal : ICategoryDal
+    public class CategoryDal : IEntityDal<CategoryDTO>
     {
         private string _connStr;
         public CategoryDal(string connStr)
@@ -17,7 +14,7 @@ namespace DAL.ADO
             this._connStr = connStr;
         }
 
-        public void CreateCategory(CategoryDTO category)
+        public void CreateItem(CategoryDTO category)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -29,12 +26,13 @@ namespace DAL.ADO
                 comm.Parameters.AddWithValue("@cName", category.Name);;
 
                 int rowsAffected = comm.ExecuteNonQuery();
-                Console.WriteLine($"New category ID = {category.CategoryID}");
+                Console.WriteLine($"New category ID created!");
 
                 conn.Close();
             }
         }
-        public void DeleteCategory(int categoryId)
+
+        public void DeleteItem(int categoryId)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -52,7 +50,7 @@ namespace DAL.ADO
             }
         }
 
-        public List<CategoryDTO> GetAllCategories()
+        public List<CategoryDTO> GetAllItems()
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -75,11 +73,12 @@ namespace DAL.ADO
                         RowUpdateTime = DateTime.Parse(reader["RowUpdateTime"].ToString())
                     });
                 }
+                conn.Close();
                 return categories;
             }
         }
 
-        public CategoryDTO GetCategoryById(int categoryId)
+        public CategoryDTO GetItemById(int categoryId)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -106,7 +105,7 @@ namespace DAL.ADO
             }
         }
 
-        public void UpdateCategory(CategoryDTO category)
+        public void UpdateItem(CategoryDTO category)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())

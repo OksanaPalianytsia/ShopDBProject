@@ -1,6 +1,5 @@
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DTO\bin\Debug\DTO.dll
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DTO\bin\Debug\DTO.pdb
-D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DTO\obj\Debug\DTO.dll
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DTO\obj\Debug\DTO.pdb

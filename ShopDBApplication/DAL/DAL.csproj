@@ -48,12 +48,12 @@
     <Compile Include="ADO\ProviderDal.cs" />
     <Compile Include="Interfaces\ICategoryDal.cs" />
     <Compile Include="Interfaces\IContractDal.cs" />
+    <Compile Include="Interfaces\IEntityDal.cs" />
     <Compile Include="Interfaces\IOrderDal.cs" />
     <Compile Include="Interfaces\IProductDal.cs" />
     <Compile Include="Interfaces\IProviderDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{59acd699-8768-40b0-938a-42bb1326de15}</Project>

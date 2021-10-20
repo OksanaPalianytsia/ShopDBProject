@@ -1,12 +1,7 @@
 ﻿using DAL.ADO;
 using DTO;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShopDBApplication
 {
@@ -16,7 +11,7 @@ namespace ShopDBApplication
         public void GetProducts()
         {            
             var productDal = new ProductDal(connstr);
-            var products = productDal.GetAllProducts();
+            var products = productDal.GetAllItems();
             foreach (var item in products)
             {
                 Console.WriteLine($"{item.ProductID}\t{item.Name}\t{item.CategoryID}\t{item.Price}");
@@ -25,7 +20,7 @@ namespace ShopDBApplication
         public void GetProviders()
         {
             var providerDal = new ProviderDal(connstr);
-            var providers = providerDal.GetAllProviders();
+            var providers = providerDal.GetAllItems();
             foreach (var item in providers)
             {
                 Console.WriteLine($"{item.ProviderID}\t{item.Name}");
@@ -35,7 +30,7 @@ namespace ShopDBApplication
         public void GetOrders()
         {
             var orderDal = new OrderDal(connstr);
-            var orders = orderDal.GetAllOrders();
+            var orders = orderDal.GetAllItems();
             foreach (var item in orders)
             {
                 Console.WriteLine($"{item.OrderID}\t{item.ProductID}\t{item.Quantity}");
@@ -45,7 +40,7 @@ namespace ShopDBApplication
         public void GetCategories()
         {
             var categoryDal = new CategoryDal(connstr);
-            var categories = categoryDal.GetAllCategories();
+            var categories = categoryDal.GetAllItems();
             foreach (var item in categories)
             {
                 Console.WriteLine($"{item.CategoryID}\t{item.Name}");
@@ -55,7 +50,7 @@ namespace ShopDBApplication
         public void GetContracts()
         {
             var contractDal = new ContractDal(connstr);
-            var contracts = contractDal.GetAllContracts();
+            var contracts = contractDal.GetAllItems();
             foreach (var item in contracts)
             {
                 Console.WriteLine($"{item.ContractID}\t{item.CategoryID}\t{item.ProviderID}");
@@ -87,7 +82,7 @@ namespace ShopDBApplication
                 RowUpdateTime = pRowUpdateTime,
             };
             var prod = new ProductDal(connstr);
-            prod.CreateProduct(new_product);
+            prod.CreateItem(new_product);
         }
         public void CreateCategory()
         {
@@ -106,7 +101,7 @@ namespace ShopDBApplication
                 RowUpdateTime = cRowUpdateTime,
             };
             var cat = new CategoryDal(connstr);
-            cat.CreateCategory(new_category);
+            cat.CreateItem(new_category);
         }
         public void CreateProvider()
         {
@@ -125,7 +120,7 @@ namespace ShopDBApplication
                 RowUpdateTime = pRowUpdateTime,
             };
             var prov = new ProviderDal(connstr);
-            prov.CreateProvider(new_provider);
+            prov.CreateItem(new_provider);
         }
         public void CreateContract()
         {
@@ -147,7 +142,7 @@ namespace ShopDBApplication
                 RowUpdateTime = pRowUpdateTime,
             };
             var cont = new ContractDal(connstr);
-            cont.CreateContract(new_contract);
+            cont.CreateItem(new_contract);
         }
         public void CreateOrder()
         {
@@ -169,7 +164,7 @@ namespace ShopDBApplication
                 RowUpdateTime = oRowUpdateTime,
             };
             var ord = new OrderDal(connstr);
-            ord.CreateOrder(new_order);
+            ord.CreateItem(new_order);
         }
 
 
@@ -179,7 +174,7 @@ namespace ShopDBApplication
             int pProductID = Int32.Parse(Console.ReadLine());
 
             var prod = new ProductDal(connstr);
-            prod.DeleteProduct(pProductID);
+            prod.DeleteItem(pProductID);
 
         }
         public void DeleteCategory()
@@ -188,7 +183,7 @@ namespace ShopDBApplication
             int cCategoryID = Int32.Parse(Console.ReadLine());
 
             var cat = new CategoryDal(connstr);
-            cat.DeleteCategory(cCategoryID);
+            cat.DeleteItem(cCategoryID);
 
         }
         public void DeleteProvider()
@@ -197,7 +192,7 @@ namespace ShopDBApplication
             int pProviderID = Int32.Parse(Console.ReadLine());
 
             var prov = new ProviderDal(connstr);
-            prov.DeleteProvider(pProviderID);
+            prov.DeleteItem(pProviderID);
 
         }
         public void DeleteContract()
@@ -206,7 +201,7 @@ namespace ShopDBApplication
             int cContractID = Int32.Parse(Console.ReadLine());
 
             var cont = new ContractDal(connstr);
-            cont.DeleteContract(cContractID);
+            cont.DeleteItem(cContractID);
 
         }
         public void DeleteOrder()
@@ -215,7 +210,7 @@ namespace ShopDBApplication
             int oOrderID = Int32.Parse(Console.ReadLine());
 
             var cont = new OrderDal(connstr);
-            cont.DeleteOrder(oOrderID);
+            cont.DeleteItem(oOrderID);
 
         }
 
@@ -243,7 +238,7 @@ namespace ShopDBApplication
                 RowUpdateTime = pRowUpdateTime
             };
             var prod = new ProductDal(connstr);
-            prod.UpdateProduct(new_product);
+            prod.UpdateItem(new_product);
 
         }
         public void UpdateCategory()
@@ -263,7 +258,7 @@ namespace ShopDBApplication
                 RowUpdateTime = cRowUpdateTime
             };
             var cat = new CategoryDal(connstr);
-            cat.UpdateCategory(new_category);
+            cat.UpdateItem(new_category);
 
         }
         public void UpdateProvider()
@@ -283,7 +278,7 @@ namespace ShopDBApplication
                 RowUpdateTime = pRowUpdateTime
             };
             var prov = new ProviderDal(connstr);
-            prov.UpdateProvider(new_provider);
+            prov.UpdateItem(new_provider);
 
         }
         public void UpdateContract()
@@ -306,7 +301,7 @@ namespace ShopDBApplication
                 RowUpdateTime = pRowUpdateTime
             };
             var cont = new ContractDal(connstr);
-            cont.UpdateContract(new_contract);
+            cont.UpdateItem(new_contract);
 
         }
         public void UpdateOrder()
@@ -329,7 +324,7 @@ namespace ShopDBApplication
                 RowUpdateTime = pRowUpdateTime
             };
             var ord = new OrderDal(connstr);
-            ord.UpdateOrder(new_order);
+            ord.UpdateItem(new_order);
 
         }
 
@@ -341,7 +336,7 @@ namespace ShopDBApplication
             int pProductID = Convert.ToInt32(data);
 
             ProductDal prod = new ProductDal(connstr);
-            var result_prod = prod.GetProductById(pProductID);
+            var result_prod = prod.GetItemById(pProductID);
             Console.WriteLine($"{result_prod.ProductID}\t{result_prod.Name}\t{result_prod.CategoryID}\t{result_prod.Price}");
 
         }
@@ -353,7 +348,7 @@ namespace ShopDBApplication
             int cCategoryID = Convert.ToInt32(data);
 
             CategoryDal cat = new CategoryDal(connstr);
-            var result_cat = cat.GetCategoryById(cCategoryID);
+            var result_cat = cat.GetItemById(cCategoryID);
             Console.WriteLine($"{result_cat.CategoryID}\t{result_cat.Name}");
 
         }
@@ -364,7 +359,7 @@ namespace ShopDBApplication
             int pProviderID = Convert.ToInt32(data);
 
             ProviderDal prov = new ProviderDal(connstr);
-            var result_prov = prov.GetProviderById(pProviderID);
+            var result_prov = prov.GetItemById(pProviderID);
             Console.WriteLine($"{result_prov.ProviderID}\t{result_prov.Name}");
 
         }
@@ -375,7 +370,7 @@ namespace ShopDBApplication
             int cContractID = Convert.ToInt32(data);
 
             ContractDal cont = new ContractDal(connstr);
-            var result_cont = cont.GetContractById(cContractID);
+            var result_cont = cont.GetItemById(cContractID);
             Console.WriteLine($"{result_cont.ContractID}\t{result_cont.CategoryID}\t{result_cont.ProviderID}");
 
         }
@@ -387,7 +382,7 @@ namespace ShopDBApplication
             int oOrderID = Convert.ToInt32(data);
 
             OrderDal ord = new OrderDal(connstr);
-            var result_ord = ord.GetOrderById(oOrderID);
+            var result_ord = ord.GetItemById(oOrderID);
             Console.WriteLine($"{result_ord.OrderID}\t{result_ord.ProductID}\t{result_ord.Quantity}");
 
         }

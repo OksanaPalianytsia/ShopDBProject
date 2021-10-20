@@ -3,13 +3,10 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.ADO
 {
-    public class ContractDal : IContractDal
+    public class ContractDal : IEntityDal<ContractDTO>
     {
         private string _connStr;
         public ContractDal(string connStr)
@@ -17,7 +14,7 @@ namespace DAL.ADO
             this._connStr = connStr;
         }
 
-        public void CreateContract(ContractDTO contract)
+        public void CreateItem(ContractDTO contract)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -30,13 +27,13 @@ namespace DAL.ADO
                 comm.Parameters.AddWithValue("@cProviderID", contract.ProviderID);
 
                 int rowsAffected = comm.ExecuteNonQuery();
-                Console.WriteLine($"New contract ID = {contract.ContractID}");
+                Console.WriteLine($"New contract created!");
 
                 conn.Close();
             }
         }
 
-        public void DeleteContract(int contractId)
+        public void DeleteItem(int contractId)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -54,7 +51,7 @@ namespace DAL.ADO
             }
         }
 
-        public List<ContractDTO> GetAllContracts()
+        public List<ContractDTO> GetAllItems()
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -77,11 +74,12 @@ namespace DAL.ADO
                         RowUpdateTime = DateTime.Parse(reader["RowUpdateTime"].ToString())
                     });
                 }
+                conn.Close();
                 return contracts;
             }
         }
 
-        public ContractDTO GetContractById(int contractId)
+        public ContractDTO GetItemById(int contractId)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -109,7 +107,8 @@ namespace DAL.ADO
             }
         }
 
-        public void UpdateContract(ContractDTO contract)
+
+        public void UpdateItem(ContractDTO contract)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())

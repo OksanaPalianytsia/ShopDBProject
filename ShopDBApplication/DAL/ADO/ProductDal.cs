@@ -3,13 +3,10 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.ADO
 {
-    public class ProductDal : IProductDal
+    public class ProductDal : IEntityDal<ProductDTO>
     {
         public string _connStr;
 
@@ -18,7 +15,8 @@ namespace DAL.ADO
             this._connStr = connstr;
         }
 
-        public void CreateProduct(ProductDTO product)
+
+        public void CreateItem(ProductDTO product)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -32,13 +30,13 @@ namespace DAL.ADO
                 comm.Parameters.AddWithValue("@pPrice", product.Price);
 
                 int rowsAffected = comm.ExecuteNonQuery();
-                Console.WriteLine($"New product ID = {product.ProductID}");
+                Console.WriteLine($"New product created!");
 
                 conn.Close();
             }
         }
 
-        public void DeleteProduct(int productId)
+        public void DeleteItem(int productId)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -56,7 +54,7 @@ namespace DAL.ADO
             }
         }
 
-        public List<ProductDTO> GetAllProducts()
+        public List<ProductDTO> GetAllItems()
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -81,11 +79,12 @@ namespace DAL.ADO
                         RowUpdateTime = DateTime.Parse(reader["RowUpdateTime"].ToString())
                     });
                 }
+                conn.Close();
                 return products;
             }
         }
 
-        public ProductDTO GetProductById(int productId)
+        public ProductDTO GetItemById(int productId)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -114,7 +113,7 @@ namespace DAL.ADO
             }
         }
 
-        public void UpdateProduct(ProductDTO product)
+        public void UpdateItem(ProductDTO product)
         {
             ProductDTO product_new = product;
             using (SqlConnection conn = new SqlConnection(this._connStr))

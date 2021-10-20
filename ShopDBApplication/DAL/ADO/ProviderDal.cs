@@ -3,13 +3,10 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.ADO
 {
-    public class ProviderDal : IProviderDal
+    public class ProviderDal : IEntityDal <ProviderDTO>
     {
         private string _connStr;
         public ProviderDal(string connStr)
@@ -17,7 +14,7 @@ namespace DAL.ADO
             this._connStr = connStr;
         }
 
-        public void CreateProvider(ProviderDTO provider)
+        public void CreateItem(ProviderDTO provider)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -29,13 +26,13 @@ namespace DAL.ADO
                 comm.Parameters.AddWithValue("@pName", provider.Name);
 
                 int rowsAffected = comm.ExecuteNonQuery();
-                Console.WriteLine($"New provider ID = {provider.ProviderID}");
+                Console.WriteLine($"New provider created!");
 
                 conn.Close();
             }
         }
 
-        public void DeleteProvider(int providerId)
+        public void DeleteItem(int providerId)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -53,7 +50,7 @@ namespace DAL.ADO
             }
         }
 
-        public List<ProviderDTO> GetAllProviders()
+        public List<ProviderDTO> GetAllItems()
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -75,11 +72,12 @@ namespace DAL.ADO
                         RowUpdateTime = DateTime.Parse(reader["RowUpdateTime"].ToString())
                     });
                 }
+                conn.Close();
                 return providers;
             }
         }
 
-        public ProviderDTO GetProviderById(int providerId)
+        public ProviderDTO GetItemById(int providerId)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -106,7 +104,7 @@ namespace DAL.ADO
             }
         }
 
-        public void UpdateProvider(ProviderDTO provider)
+        public void UpdateItem(ProviderDTO provider)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())

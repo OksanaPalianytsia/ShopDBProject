@@ -5,10 +5,10 @@ namespace DAL.Interfaces
 {
     public interface IOrderDal
     {
-        List<OrderDTO> GetAllOrders();
-        OrderDTO GetOrderById(int orderId);
-        void UpdateOrder(OrderDTO order);
-        void CreateOrder(OrderDTO order);
+        List<ContractDTO> GetAllOrders();
+        ContractDTO GetOrderById(int orderId);
+        void UpdateOrder(ContractDTO order);
+        void CreateOrder(ContractDTO order);
         void DeleteOrder(int orderId);
     }
 }

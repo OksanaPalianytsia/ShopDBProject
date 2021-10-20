@@ -9,3 +9,4 @@ D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplicat
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\DTO.dll
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\DAL.pdb
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\bin\Debug\DTO.pdb
+D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\ShopDBApplication\obj\Debug\ConsoleProject.csproj.CopyComplete

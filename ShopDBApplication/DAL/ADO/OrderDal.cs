@@ -3,20 +3,18 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.ADO
 {
-    public class OrderDal : IOrderDal
+    public class OrderDal : IEntityDal<OrderDTO>
     {
         private string _connStr;
         public OrderDal(string connStr)
         {
             this._connStr = connStr;
         }
-        public void CreateOrder(OrderDTO order)
+
+        public void CreateItem(OrderDTO order)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -29,13 +27,13 @@ namespace DAL.ADO
                 comm.Parameters.AddWithValue("@oQuantity", order.Quantity);
 
                 int rowsAffected = comm.ExecuteNonQuery();
-                Console.WriteLine($"New order ID = {order.OrderID}");
+                Console.WriteLine($"New order created!");
 
                 conn.Close();
             }
         }
 
-        public void DeleteOrder(int orderId)
+        public void DeleteItem(int orderId)
         {
             using (SqlConnection conn = new SqlConnection(_connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -53,7 +51,7 @@ namespace DAL.ADO
             }
         }
 
-        public List<OrderDTO> GetAllOrders()
+        public List<OrderDTO> GetAllItems()
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -77,11 +75,12 @@ namespace DAL.ADO
                         RowUpdateTime = DateTime.Parse(reader["RowUpdateTime"].ToString())
                     });
                 }
+                conn.Close();
                 return orders;
             }
         }
 
-        public OrderDTO GetOrderById(int orderId)
+        public OrderDTO GetItemById(int orderId)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
@@ -109,7 +108,8 @@ namespace DAL.ADO
             }
         }
 
-        public void UpdateOrder(OrderDTO order)
+
+        public void UpdateItem(OrderDTO order)
         {
             using (SqlConnection conn = new SqlConnection(this._connStr))
             using (SqlCommand comm = conn.CreateCommand())
