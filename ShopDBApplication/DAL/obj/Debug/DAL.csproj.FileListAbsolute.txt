@@ -6,4 +6,3 @@ D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL\obj\Debug\
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL\obj\Debug\DAL.dll
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL\obj\Debug\DAL.pdb
-D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL\obj\Debug\DAL.csproj.CopyComplete

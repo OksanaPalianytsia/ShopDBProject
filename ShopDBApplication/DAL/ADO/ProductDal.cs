@@ -43,7 +43,7 @@ namespace DAL.ADO
             {
                 conn.Open();
 
-                comm.CommandText = "DELETE Product WHERE ProductID = @pProductID";
+                comm.CommandText = "DELETE Product WHERE ProductID = @pProductID AND NOT EXISTS (SELECT * FROM [SHOP].[dbo].[Order] WHERE [Order].ProductID = Product.ProductID)";
                 comm.Parameters.Clear();
                 comm.Parameters.AddWithValue("@pProductID", productId);
 

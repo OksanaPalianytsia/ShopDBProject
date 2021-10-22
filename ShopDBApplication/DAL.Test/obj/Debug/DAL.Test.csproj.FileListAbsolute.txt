@@ -17,4 +17,3 @@ D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL.Test\obj\D
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL.Test\obj\Debug\DAL.Test.csproj.CoreCompileInputs.cache
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL.Test\obj\Debug\DAL.Test.dll
 D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL.Test\obj\Debug\DAL.Test.pdb
-D:\Ok_i_Hr\AMATHEMATICS\C#_Programming_Projects\ShopDBApplication\DAL.Test\obj\Debug\DAL.Test.csproj.CopyComplete

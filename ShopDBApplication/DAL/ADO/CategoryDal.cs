@@ -39,7 +39,7 @@ namespace DAL.ADO
             {
                 conn.Open();
 
-                comm.CommandText = "DELETE Category WHERE CategoryID = @cCategoryID";
+                comm.CommandText = "DELETE Category WHERE CategoryID = @cCategoryID AND NOT EXISTS (SELECT * FROM [SHOP].[dbo].[Product] WHERE [Product].CategoryID = Category.CategoryID) AND NOT EXISTS (SELECT * FROM [SHOP].[dbo].[Contract] WHERE [Contract].CategoryID = Category.CategoryID)";
                 comm.Parameters.Clear();
                 comm.Parameters.AddWithValue("@cCategoryID", categoryId);
 

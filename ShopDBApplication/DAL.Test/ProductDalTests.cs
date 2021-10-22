@@ -78,7 +78,7 @@ namespace DAL.Test
             {
                 conn.Open();
 
-                comm.CommandText = "DELETE Product WHERE ProductID = @pProductID";
+                comm.CommandText = "DELETE Product WHERE ProductID = @pProductID AND NOT EXISTS (SELECT * FROM [SHOP_for_tests].[dbo].[Order] WHERE [Order].ProductID = Product.ProductID)";
                 comm.Parameters.Clear();
                 comm.Parameters.AddWithValue("@pProductID", productId);
 

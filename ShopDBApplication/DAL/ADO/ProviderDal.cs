@@ -39,7 +39,7 @@ namespace DAL.ADO
             {
                 conn.Open();
 
-                comm.CommandText = "DELETE Provider WHERE ProviderID = @pProviderID";
+                comm.CommandText = "DELETE Provider WHERE ProviderID = @pProviderID AND NOT EXISTS (SELECT * FROM [SHOP].[dbo].[Contract] WHERE [Contract].ProviderID = Provider.ProviderID)";
                 comm.Parameters.Clear();
                 comm.Parameters.AddWithValue("@pProviderID", providerId);
 

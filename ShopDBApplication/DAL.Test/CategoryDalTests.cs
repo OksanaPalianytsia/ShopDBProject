@@ -74,9 +74,9 @@ namespace DAL.Test
             {
                 conn.Open();
 
-                comm.CommandText = "DELETE Category WHERE CategoryID = @pCategoryID";
+                comm.CommandText = "DELETE Category WHERE CategoryID = @cCategoryID AND NOT EXISTS (SELECT * FROM [SHOP_for_tests].[dbo].[Product] WHERE [Product].CategoryID = Category.CategoryID) AND NOT EXISTS (SELECT * FROM [SHOP_for_tests].[dbo].[Contract] WHERE [Contract].CategoryID = Category.CategoryID)";
                 comm.Parameters.Clear();
-                comm.Parameters.AddWithValue("@pCategoryID", categoryId);
+                comm.Parameters.AddWithValue("@cCategoryID", categoryId);
 
                 int rowsDeleted = comm.ExecuteNonQuery();
                 Console.WriteLine($"Deleted row = {rowsDeleted}");
